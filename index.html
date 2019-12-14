@@ -12,11 +12,12 @@
 </head>
 
 <body>
-
+    <div class="popUpContainer">
+    </div>
     <div class="container">
-        <div class="header clearfix">
+        <div class="header">
             <h1>Welcome to Rock, Paper, Scissors!</h1>
-
+            
             <div class="carouselbox" aria-role="img" aria-label="carousel">
                 <img id="currentImg">
                 <div class="buttons">
@@ -28,7 +29,6 @@
                     </button>
                 </div>
             </div>
-
             <div>
                 <button id="submitBtn">Select</button>
             </div>
@@ -55,12 +55,16 @@
                 <h3>Our Choice</h3>
                 <div class="hidden" id="compImageBox">
                     <img id="compImage">
-
+                    
                 </div>
                 <div>
                     <counter class=hidden id="compCounter">...3</counter>
                 </div>
             </div>
+        </div>
+        <div class="hidden" id="resultBox">
+            <h2 class="resultText">You won!</h2>
+            <img class="resultImg" src="high-five.png"
         </div>
     </div>
     <script src="assets/script.js"></script>

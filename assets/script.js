@@ -13,6 +13,7 @@ var compImage = document.querySelector("#compImage")
 var compCounter = document.querySelector("#compCounter")
 var yourImageBox = document.querySelector("#yourImageBox")
 var compImageBox = document.querySelector("#compImageBox")
+var resultBox = document.querySelector("#resultBox")
 
 var p = "assets/papers.png"
 var s = "assets/scissors.png"
@@ -58,7 +59,7 @@ submitBtn.addEventListener("click", function (event) {
     var secondsLeft = 3;
     compCounter.textContent = `...${secondsLeft}`;
     setTime();
-    
+
 
     function setTime() {
         var waitFor = setInterval(function () {
@@ -91,11 +92,36 @@ submitBtn.addEventListener("click", function (event) {
                 }
             }, 1000);
 
-            // function showResult()
-            // if (compGuess === userGuess) {
-                
-            // }
-        }
+            function showResult() {
+                if (compGuess === userGuess) {
+                    console.log("tie")
+                    reset();
+                } else if ((compGuess === "assets/rock.png" && userGuess === "assets/paper.png") ||
+                    (compGuess === "assets/scissors.png" && userGuess === "assets/rock.png") ||
+                    (compGuess === "assets/paper.png" && userGuess === "assets/scissors.png")) {
+                    resultBox.setAttribute("class", "show")
+                    console.log("win")
+                    reset();
+                } else {
+                    console.log("loss")
+                    reset();
+                }
 
+                function reset() {
+                    var resultTime = 5;
+                    var holdResult = setInterval(function () {
+                        resultTime--;
+
+                        if (resultTime === 0) {
+                            clearInterval(holdResult);
+                            resultBox.setAttribute("class", "hidden")
+                            console.log('done')
+                        }
+                    }, 1000);
+                }
+            }
+
+
+        }
     }
-} )
+})
