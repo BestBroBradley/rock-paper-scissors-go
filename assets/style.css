@@ -1,0 +1,85 @@
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.carouselbox {
+    cursor: pointer;
+    display: block;
+    height: 200px;
+    margin: auto;
+    position: relative;
+    width: 300px;
+}
+
+button {
+    background-color: palegoldenrod;
+    border: 3px black solid;
+    border-radius: 12px;
+    font-size: 1em;
+    padding: 5px 10px;
+}
+
+.next {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    width: 40%
+}
+
+.prev {
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    width: 40%;
+}
+
+
+.header {
+    background-image: url("memphis-colorful.png");
+    border: 5px darkslategrey solid;
+    border-radius: 12px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1 {
+    background: white;
+    border-bottom: 5px black solid;
+    font-size: 30px;
+    margin-top: 0;
+    text-align: center;
+}
+
+img {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+
+.imageBlock {
+    width: 33%;
+}
+
+.radio-inline {
+    font-size: 1.5em;
+}
+
+#submitBtn {
+    display: block;
+    padding: 6px 25px;
+    margin: 10px auto;
+    width: 45%;
+
+}
+
+.userOptions {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+}
