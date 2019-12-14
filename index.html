@@ -7,11 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rock, Paper, Scissors...GO!</title>
     <link rel="stylesheet" href="assets/normalize.css">
-</head>
-<link rel="stylesheet" href="assets/style.css">
-</head>
+    <link rel="stylesheet" href="assets/style.css">
 
-
+</head>
 
 <body>
 
@@ -35,6 +33,7 @@
                 <button id="submitBtn">Select</button>
             </div>
         </div>
+        
         <div>
             <ul id="score">
                 <li id="wins">Wins:</li>
@@ -45,7 +44,7 @@
         <div id="guessesDiv">
             <div class="guess" id="userGuess">
                 <h3>Your Choice</h3>
-                <div class="imgDiv">
+                <div class="hidden" id="yourImageBox">
                     <img id="yourImage">
                 </div>
             </div>
@@ -54,7 +53,7 @@
             </div>
             <div class="guess" id="compGuess">
                 <h3>Our Choice</h3>
-                <div class="imgDiv">
+                <div class="hidden" id="compImageBox">
                     <img id="compImage">
 
                 </div>
@@ -63,7 +62,8 @@
                 </div>
             </div>
         </div>
-        <script src="assets/script.js"></script>
+    </div>
+    <script src="assets/script.js"></script>
 </body>
 
 </html>
