@@ -14,10 +14,8 @@ var compCounter = document.querySelector("#compCounter")
 var yourImageBox = document.querySelector("#yourImageBox")
 var compImageBox = document.querySelector("#compImageBox")
 var resultBox = document.querySelector("#resultBox")
-
-var p = "assets/papers.png"
-var s = "assets/scissors.png"
-var r = "assets/rock.png"
+var resultText = document.querySelector(".resultText")
+var resultImg = document.querySelector(".resultImg")
 
 var winCount = 0
 var tieCount = 0
@@ -79,7 +77,7 @@ submitBtn.addEventListener("click", function (event) {
             var compGuess = images[Math.floor(Math.random() * images.length)];
             compImageBox.setAttribute("class", "imgDiv")
             compImage.src = compGuess
-            var showCompTime = 5;
+            var showCompTime = 3;
 
             var waitAgain = setInterval(function () {
                 showCompTime--;
@@ -93,22 +91,34 @@ submitBtn.addEventListener("click", function (event) {
             }, 1000);
 
             function showResult() {
+                resultBox.setAttribute("class", "show")
                 if (compGuess === userGuess) {
                     console.log("tie")
+                    tieCount++;
+                    ties.textContent = `Ties:${tieCount}`
+                    resultText.textContent = ("It's a tie!")
+                    resultImg.src = ("assets/tie.png")
                     reset();
                 } else if ((compGuess === "assets/rock.png" && userGuess === "assets/paper.png") ||
                     (compGuess === "assets/scissors.png" && userGuess === "assets/rock.png") ||
                     (compGuess === "assets/paper.png" && userGuess === "assets/scissors.png")) {
-                    resultBox.setAttribute("class", "show")
+                    winCount++
+                    wins.textContent = `Wins:${winCount}`
+                    resultText.textContent = ("You won!")
+                    resultImg.src = ("assets/high-five.png")
                     console.log("win")
                     reset();
                 } else {
+                    lossCount++
+                    losses.textContent = `Losses:${lossCount}`
+                    resultText.textContent = ("You lost!")
+                    resultImg.src = ("assets/lose.png")
                     console.log("loss")
                     reset();
                 }
 
                 function reset() {
-                    var resultTime = 5;
+                    var resultTime = 3;
                     var holdResult = setInterval(function () {
                         resultTime--;
 
