@@ -18,21 +18,49 @@
     <div class="container">
         <div class="header clearfix">
             <h1>Welcome to Rock, Paper, Scissors!</h1>
-            
-                <div class="carouselbox" aria-role="img" aria-label="carousel">
-                    <img id="currentImg">
-                    <div class="buttons">
-                        <button class="prev">
-                            ◀ Previous
-                        </button>
-                        <button class="next">
-                            Next ▶
-                        </button>
-                    </div>
+
+            <div class="carouselbox" aria-role="img" aria-label="carousel">
+                <img id="currentImg">
+                <div class="buttons">
+                    <button class="prev">
+                        ◀ Previous
+                    </button>
+                    <button class="next">
+                        Next ▶
+                    </button>
                 </div>
-            
+            </div>
+
             <div>
                 <button id="submitBtn">Select</button>
+            </div>
+        </div>
+        <div>
+            <ul id="score">
+                <li id="wins">Wins:</li>
+                <li id="losses">Losses:</li>
+                <li id="ties">Ties:</li>
+            </ul>
+        </div>
+        <div id="guessesDiv">
+            <div class="guess" id="userGuess">
+                <h3>Your Choice</h3>
+                <div class="imgDiv">
+                    <img id="yourImage">
+                </div>
+            </div>
+            <div class="guess" id="vs">
+                <h3>VS</h3>
+            </div>
+            <div class="guess" id="compGuess">
+                <h3>Our Choice</h3>
+                <div class="imgDiv">
+                    <img id="compImage">
+
+                </div>
+                <div>
+                    <counter class=hidden id="compCounter">...3</counter>
+                </div>
             </div>
         </div>
         <script src="assets/script.js"></script>
