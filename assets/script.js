@@ -21,6 +21,8 @@ var winCount = 0
 var tieCount = 0
 var lossCount = 0
 
+var secondsLeft;
+
 wins.textContent = `Wins:${winCount}`
 losses.textContent = `Losses:${lossCount}`
 ties.textContent = `Ties:${tieCount}`
@@ -54,84 +56,83 @@ submitBtn.addEventListener("click", function (event) {
     yourImageBox.setAttribute("class", "imgDiv")
     compCounter.setAttribute("class", "show")
     compImageBox.setAttribute("class", "hidden")
-    var secondsLeft = 3;
+    secondsLeft = 3;
     compCounter.textContent = `...${secondsLeft}`;
     setTime();
 
+});
 
-    function setTime() {
-        var waitFor = setInterval(function () {
-            secondsLeft--;
-            compCounter.textContent = `...${secondsLeft}`;
 
-            if (secondsLeft === 0) {
-                clearInterval(waitFor)
-                compCounter.setAttribute("class", "hidden")
-                secondsLeft = 4;
-                showComp();
+function setTime() {
+    var waitFor = setInterval(function () {
+        secondsLeft--;
+        compCounter.textContent = `...${secondsLeft}`;
 
-            }
-        }, 1000);
-
-        function showComp() {
-            var compGuess = images[Math.floor(Math.random() * images.length)];
-            compImageBox.setAttribute("class", "imgDiv")
-            compImage.src = compGuess
-            var showCompTime = 3;
-
-            var waitAgain = setInterval(function () {
-                showCompTime--;
-
-                if (showCompTime === 0) {
-                    clearInterval(waitAgain)
-                    showCompTime = 5;
-                    showResult();
-
-                }
-            }, 1000);
-
-            function showResult() {
-                resultBox.setAttribute("class", "show")
-                if (compGuess === userGuess) {
-                    console.log("tie")
-                    tieCount++;
-                    ties.textContent = `Ties:${tieCount}`
-                    resultText.textContent = ("It's a tie!")
-                    resultImg.src = ("assets/tie.png")
-                    reset();
-                } else if ((compGuess === "assets/rock.png" && userGuess === "assets/paper.png") ||
-                    (compGuess === "assets/scissors.png" && userGuess === "assets/rock.png") ||
-                    (compGuess === "assets/paper.png" && userGuess === "assets/scissors.png")) {
-                    winCount++
-                    wins.textContent = `Wins:${winCount}`
-                    resultText.textContent = ("You won!")
-                    resultImg.src = ("assets/high-five.png")
-                    console.log("win")
-                    reset();
-                } else {
-                    lossCount++
-                    losses.textContent = `Losses:${lossCount}`
-                    resultText.textContent = ("You lost!")
-                    resultImg.src = ("assets/lose.png")
-                    console.log("loss")
-                    reset();
-                }
-
-                function reset() {
-                    var resultTime = 3;
-                    var holdResult = setInterval(function () {
-                        resultTime--;
-
-                        if (resultTime === 0) {
-                            clearInterval(holdResult);
-                            resultBox.setAttribute("class", "hidden")
-                            console.log('done')
-                        }
-                    }, 1000);
-                }
-            }
-
+        if (secondsLeft === 0) {
+            clearInterval(waitFor)
+            compCounter.setAttribute("class", "hidden")
+            secondsLeft = 4;
+            showComp();
 
         }
+    }, 1000);
+}
+
+function showComp() {
+    var compGuess = images[Math.floor(Math.random() * images.length)];
+    compImageBox.setAttribute("class", "imgDiv")
+    compImage.src = compGuess
+    var showCompTime = 3;
+
+    var waitAgain = setInterval(function () {
+        showCompTime--;
+
+        if (showCompTime === 0) {
+            clearInterval(waitAgain)
+            showCompTime = 5;
+            showResult();
+
+        }
+    }, 1000);
+}
+
+function showResult() {
+    if (compGuess === userGuess) {
+        console.log("tie")
+        tieCount++;
+        ties.textContent = `Ties:${tieCount}`
+        resultText.textContent = ("It's a tie!")
+        resultImg.src = ("assets/tie.png")
+        resultBox.setAttribute("class", "show")
+        reset();
+    } else if ((compGuess === "assets/rock.png" && userGuess === "assets/paper.png") ||
+        (compGuess === "assets/scissors.png" && userGuess === "assets/rock.png") ||
+        (compGuess === "assets/paper.png" && userGuess === "assets/scissors.png")) {
+        winCount++
+        wins.textContent = `Wins:${winCount}`
+        resultText.textContent = ("You won!")
+        resultImg.src = ("assets/high-five.png")
+        resultBox.setAttribute("class", "show")
+        reset();
+    } else {
+        lossCount++
+        losses.textContent = `Losses:${lossCount}`
+        resultText.textContent = ("You lost!")
+        resultImg.src = ("assets/lose.png")
+        resultBox.setAttribute("class", "show")
+        reset();
     }
-})
+}
+
+function reset() {
+    var resultTime = 3;
+    var holdResult = setInterval(function () {
+        resultTime--;
+
+        if (resultTime === 0) {
+            clearInterval(holdResult);
+            resultBox.setAttribute("class", "hidden")
+            console.log('done')
+        }
+    }, 1000);
+}
