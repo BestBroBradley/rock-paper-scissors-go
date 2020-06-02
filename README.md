@@ -4,6 +4,10 @@ Rock, Paper, Scissors - GO! is a purely front-end game which allows the user to 
 
 This app is a fun game, which is slightly addicting and takes only a few moments for each round.
 
+![Screenshot of initial app](/assets/screenshot-2.png)
+
+![Screenshot of app in action](/assets/screenshot.png)
+
 [Link to deployed app](https://bestbrobradley.github.io/rock-paper-scissors-go/)
 
 Version 1.0
