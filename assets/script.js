@@ -16,6 +16,8 @@ var compImageBox = document.querySelector("#compImageBox")
 var resultBox = document.querySelector("#resultBox")
 var resultText = document.querySelector(".resultText")
 var resultImg = document.querySelector(".resultImg")
+var compGuess = 0
+var userGuess = 0
 
 var winCount = 0
 var tieCount = 0
@@ -51,7 +53,7 @@ nextBtn.addEventListener("click", function (event) {
 
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
-    var userGuess = images[imgIndex]
+    userGuess = images[imgIndex]
     yourImage.src = userGuess
     yourImageBox.setAttribute("class", "imgDiv")
     compCounter.setAttribute("class", "show")
@@ -79,7 +81,7 @@ function setTime() {
 }
 
 function showComp() {
-    var compGuess = images[Math.floor(Math.random() * images.length)];
+    compGuess = images[Math.floor(Math.random() * images.length)];
     compImageBox.setAttribute("class", "imgDiv")
     compImage.src = compGuess
     var showCompTime = 3;

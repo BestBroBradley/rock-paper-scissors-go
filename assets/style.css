@@ -144,7 +144,7 @@ ul {
      position: absolute;
  }
 
- #userGuess {
+ #userGuessDiv {
     width: 40%;
  }
 
@@ -165,7 +165,7 @@ ul {
 
 }
 
- #compGuess {
+ #compGuessDiv {
     right: 0;
     width: 40%;
  }
