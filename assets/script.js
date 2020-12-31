@@ -99,6 +99,8 @@ function showComp() {
 function showResult() {
     if (compGuess === userGuess) {
         console.log("tie")
+        console.log(compGuess)
+        console.log(userGuess)
         tieCount++;
         ties.textContent = `Ties:${tieCount}`
         resultText.textContent = ("It's a tie!")
@@ -108,6 +110,9 @@ function showResult() {
     } else if ((compGuess === "assets/rock.png" && userGuess === "assets/paper.png") ||
         (compGuess === "assets/scissors.png" && userGuess === "assets/rock.png") ||
         (compGuess === "assets/paper.png" && userGuess === "assets/scissors.png")) {
+        console.log("win")
+        console.log(compGuess)
+        console.log(userGuess)
         winCount++
         wins.textContent = `Wins:${winCount}`
         resultText.textContent = ("You won!")
@@ -115,6 +120,9 @@ function showResult() {
         resultBox.setAttribute("class", "show")
         reset();
     } else {
+        console.log("loss")
+        console.log(compGuess)
+        console.log(userGuess)
         lossCount++
         losses.textContent = `Losses:${lossCount}`
         resultText.textContent = ("You lost!")
